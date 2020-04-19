@@ -3,24 +3,13 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-/**
- * Posts Controller
- *
- * @property \App\Model\Table\PostsTable $Posts
- *
- * @method \App\Model\Entity\Post[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
- */
+
 class PostsController extends AppController
 {
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|null
-     */
+
     public function index()
     {
         $posts = $this->Posts->find('all');
-        // $this->set('posts', $posts);
         $this->set(compact('posts'));
 
         // $this->paginate = [
@@ -31,13 +20,7 @@ class PostsController extends AppController
         // $this->set(compact('posts'));
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Post id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
+
     public function view($id = null)
     {
         $post = $this->Posts->get($id, [
@@ -47,11 +30,6 @@ class PostsController extends AppController
         $this->set('post', $post);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
     public function add()
     {
         $post = $this->Posts->newEntity();
@@ -68,13 +46,6 @@ class PostsController extends AppController
         $this->set(compact('post', 'users'));
     }
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Post id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function edit($id = null)
     {
         $post = $this->Posts->get($id, [
@@ -93,13 +64,6 @@ class PostsController extends AppController
         $this->set(compact('post', 'users'));
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Post id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
