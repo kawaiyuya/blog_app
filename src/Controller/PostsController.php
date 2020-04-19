@@ -10,6 +10,8 @@ class PostsController extends AppController
     // indexアクション(メソッド)
     public function index()
     {
+        
+        $this->viewBuilder()->setLayout('sample');
         // すべての投稿を検索
         $posts = $this->Posts->find('all');
         // 'posts'に$postsの値をセット
@@ -40,11 +42,12 @@ class PostsController extends AppController
             $post = $this->Posts->patchEntity($post, $this->request->getData());
             // 保存できたかの確認
             if ($this->Posts->save($post)) {
-
+                // 投稿完了メッセージ
                 $this->Flash->success(__('投稿完了'));
                 // indexアクションにリダイレクト
                 return $this->redirect(['action' => 'index']);
             }
+            // 投稿失敗時のエラーメッセージ
             $this->Flash->error(__('投稿できませんでした。もう一度試してください。'));
         }
         $users = $this->Posts->Users->find('list', ['limit' => 200]);

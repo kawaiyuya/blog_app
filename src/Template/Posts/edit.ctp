@@ -4,18 +4,17 @@
  * @var \App\Model\Entity\Post $post
  */
 ?>
+<h1 class="title">投稿編集</h1>
 <nav>
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('削除'),
                 ['action' => 'delete', $post->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $post->id)]
+                ['confirm' => __('この投稿を削除しますか?', $post->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Posts'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('投稿一覧'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="posts form large-9 medium-8 columns content">
@@ -25,9 +24,9 @@
         <?php
             echo $this->Form->control('title');
             echo $this->Form->control('content');
-            echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('更新！')) ?>
     <?= $this->Form->end() ?>
 </div>
+
