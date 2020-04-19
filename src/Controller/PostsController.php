@@ -10,7 +10,6 @@ class PostsController extends AppController
     // indexアクション(メソッド)
     public function index()
     {
-        
         $this->viewBuilder()->setLayout('sample');
         // すべての投稿を検索
         $posts = $this->Posts->find('all');
