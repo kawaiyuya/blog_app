@@ -1,9 +1,3 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Post $post
- */
-?>
 
 <h1>新規投稿</h1>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">

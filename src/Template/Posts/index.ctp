@@ -9,7 +9,7 @@
     echo $this->fetch('script');
 ?>
 <title>投稿一覧</title>
-
+<?= $this->Html->link(__('新規登録'), ['controller'=>'Users','action' => 'signup']) ?>
 <h1 class="title">投稿一覧</h1>
 <nav>
     <ul>

@@ -49,8 +49,7 @@ class PostsController extends AppController
             // 投稿失敗時のエラーメッセージ
             $this->Flash->error(__('投稿できませんでした。もう一度試してください。'));
         }
-        $users = $this->Posts->Users->find('list', ['limit' => 200]);
-        $this->set(compact('post', 'users'));
+        $this->set(compact('post'));
     }
 
     public function edit($id = null)
@@ -67,8 +66,7 @@ class PostsController extends AppController
             }
             $this->Flash->error(__('エラーが発生して保存できませんでした。'));
         }
-        $users = $this->Posts->Users->find('list', ['limit' => 200]);
-        $this->set(compact('post', 'users'));
+        $this->set(compact('post'));
     }
 
     public function delete($id = null)

@@ -1,9 +1,3 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Post $post
- */
-?>
 <h1 class="title">投稿編集</h1>
 <nav>
     <ul class="side-nav">
