@@ -12,7 +12,9 @@ class User extends Entity
     // passwordの暗号化メソッド
     protected function _setPassword($password)
     {
-        return (new DefaultPasswordHasher)->hash($password);
+        if (strlen($password) > 0) {
+            return (new DefaultPasswordHasher)->hash($password);
+        }
     }
 
     protected $_accessible = [

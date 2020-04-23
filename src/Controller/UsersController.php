@@ -29,14 +29,16 @@ class UsersController extends AppController
 
     public function login()
     {
+        // Post送信かの判定
         if($this->request->is('post')){
+            // 
             $user = $this->Auth->identify();
+            // ユーザー情報を取得できたら
             if($user){
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
-
+            $this->Flash->error(__('ログインに失敗しました、もう一度トライしてください。'));
         }
 
     }

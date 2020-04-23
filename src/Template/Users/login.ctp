@@ -4,7 +4,7 @@
     <?= $this->Flash->render() ?>
     <?= $this->Form->create() ?>
     <fieldset>
-        <legend><?= __('Please enter your username and password') ?></legend>
+        <legend><?= __('Please enter your name and password') ?></legend>
         <?= $this->Form->control('name') ?>
         <?= $this->Form->control('password') ?>
     </fieldset>

@@ -58,11 +58,12 @@ class AppController extends Controller
             'authenticate' => 
             ['Form' => 
                 ['userModel' => 'Users','fields' => 
-                    ['name' => 'name','password' => 'password']
+                    ['username' => 'name','password' => 'password']
                 ]
             ],
         ]);
 
+        // loginしていない場合はログイン画面とサインアップ画面以外は飛べない
         $this->Auth->allow(['login','signup']);
 
         /*
