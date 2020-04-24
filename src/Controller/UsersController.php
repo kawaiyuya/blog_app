@@ -31,7 +31,7 @@ class UsersController extends AppController
     {
         // Post送信かの判定
         if($this->request->is('post')){
-            // 
+            // ユーザー情報の取得
             $user = $this->Auth->identify();
             // ユーザー情報を取得できたら
             if($user){
