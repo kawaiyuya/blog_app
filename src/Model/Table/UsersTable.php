@@ -18,11 +18,12 @@ class UsersTable extends Table{
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        
         // CommentsTableとの紐付け(n側)
-        // $this->hasMany('Posts', [
-        //     // Userが削除された時紐付づいた投稿を削除
-        //     'dependent'=>ture
-        // ]);
+        $this->hasMany('Posts', [
+            // Userが削除された時紐付づいた投稿を削除
+            'dependent'=>ture
+        ]);
     }
 
     // バリデーションメソッド

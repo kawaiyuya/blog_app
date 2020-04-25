@@ -5,6 +5,30 @@ use App\Controller\AppController;
 
 class UsersController extends AppController
 {
+
+    public function index(){
+        $users = $this->Users->find('all');
+
+        $this->set(compact('users'));
+    }
+
+    public function view($id = null){
+        // idからユーザー情報に紐づく投稿を検索
+        $user = $this->Users->get($id, [
+            'contain' => ['Posts']
+        ]);
+        // 'user'に$postをセット
+        $this->set('user', $user);
+
+        // idからユーザー情報に紐づく投稿を検索
+        // $post = $this->Posts->get($id, [
+        //     'contain' => ['Users']
+        // ]);
+        // // 'post'に$postをセット
+        // $this->set('post', $post);
+    }
+
+
     // 新規登録アクション
     public function signup()
     {
@@ -47,6 +71,8 @@ class UsersController extends AppController
     {
         return $this->redirect($this->Auth->logout());
     }
+
+
 
     // public function edit($id = null)
     // {

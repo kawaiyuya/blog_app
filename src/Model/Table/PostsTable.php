@@ -9,8 +9,9 @@ class PostsTable extends Table{
     public function initialize(array $config)
     {
         $this->addBehavior('Timestamp');
+        
         // UsersTableとの紐付け(1側)
-        // $this->belongsTo('Users');
+        $this->belongsTo('Users');
     }
 
     // バリデーションメソッド
