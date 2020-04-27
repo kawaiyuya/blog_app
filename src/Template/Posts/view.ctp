@@ -6,9 +6,9 @@
 ?>
 
 <h1 class="title">投稿詳細</h1>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
+<nav>
+    <ul>
+        <li><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('投稿一覧'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('新規投稿'), ['action' => 'add']) ?> </li>
     </ul>

@@ -6,6 +6,10 @@
     <title>
       <?= $this->fetch('title') ?>
     </title>
+    <?= $this->fetch('meta'); ?>
+    <?= $this->Html->css('sample.css'); ?>
+    <?= $this->fetch('css'); ?>
+    <?= $this->fetch('script'); ?>
 </head>
 <body>
     <div class="container clearfix">

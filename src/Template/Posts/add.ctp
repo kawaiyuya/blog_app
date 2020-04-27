@@ -10,10 +10,9 @@
     <?= $this->Form->create($post) ?>
     <fieldset>
         <legend><?= __('新規投稿') ?></legend>
-        <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('content');
-        ?>
+            <?= $this->Form->control('title'); ?>
+            <?= $this->Form->control('content'); ?>
+            <?= $this->Form->hidden('user_id', ['value'=>$user_id]); ?>
     </fieldset>
     <?= $this->Form->button(__('送信！')) ?>
     <?= $this->Form->end() ?>

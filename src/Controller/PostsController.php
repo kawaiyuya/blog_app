@@ -22,6 +22,9 @@ class PostsController extends AppController
     // 詳細表示アクション(メソッド)デフォルト値に $id = null
     public function view($id = null)
     {
+
+        $this->viewBuilder()->setLayout('sample');
+
         // idからユーザー情報に紐づく投稿を検索
         $post = $this->Posts->get($id, [
             'contain' => ['Users'],
@@ -33,6 +36,8 @@ class PostsController extends AppController
     // 新規投稿アクション
     public function add()
     {
+        $this->viewBuilder()->setLayout('sample');
+
         // 新しいエンティティの作成
         $post = $this->Posts->newEntity();
         // requestされメソッドが、postの場合True
@@ -49,11 +54,15 @@ class PostsController extends AppController
             // 投稿失敗時のエラーメッセージ
             $this->Flash->error(__('投稿できませんでした。もう一度試してください。'));
         }
+        $user_id= $this->Auth->user('id');
+        $this->set(compact('user_id'));
         $this->set(compact('post'));
     }
 
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('sample');
+
         $post = $this->Posts->get($id, [
             'contain' => [],
         ]);

@@ -7,12 +7,18 @@ class UsersController extends AppController
 {
 
     public function index(){
+        // レイアウトの設定
+        $this->viewBuilder()->setLayout('sample');
+        
         $users = $this->Users->find('all');
 
         $this->set(compact('users'));
     }
 
     public function view($id = null){
+        // レイアウトの設定
+        $this->viewBuilder()->setLayout('sample');
+        
         // idからユーザー情報に紐づく投稿を検索
         $user = $this->Users->get($id, [
             'contain' => ['Posts']
@@ -32,6 +38,8 @@ class UsersController extends AppController
     // 新規登録アクション
     public function signup()
     {
+        // レイアウトの設定
+        $this->viewBuilder()->setLayout('sample');
         // 新しいエンティティの作成
         $user = $this->Users->newEntity();
         // requestされメソッドが、postの場合True
@@ -53,6 +61,8 @@ class UsersController extends AppController
 
     public function login()
     {
+        // レイアウトの設定
+        $this->viewBuilder()->setLayout('sample');
         // Post送信かの判定
         if($this->request->is('post')){
             // ユーザー情報の取得
